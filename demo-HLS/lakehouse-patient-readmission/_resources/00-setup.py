@@ -3,6 +3,11 @@
 
 # COMMAND ----------
 
+#spark.sql("DROP CATALOG IF EXISTS main__build cascade")
+#spark.sql("DROP CATALOG IF EXISTS main_build cascade")
+
+# COMMAND ----------
+
 dbutils.widgets.dropdown("reset_all_data", "false", ["true", "false"], "Reset all data")
 reset_all_data = dbutils.widgets.get("reset_all_data") == "true"
 
