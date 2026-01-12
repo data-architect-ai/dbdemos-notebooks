@@ -5,6 +5,7 @@ catalog = "main__build"
 schema = dbName = db = "dbdemos_fsi_smart_claims"
 volume_name = "volume_claims"
 
+
 # ----------------------------------
 # Ingest raw claims data from JSON files
 # Contains claim information: claim numbers, dates, driver details, incident information

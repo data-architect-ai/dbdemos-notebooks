@@ -1,3 +1,7 @@
+import sys
+sys.path.insert(0, "../vars")
+from vars import *
+
 from pyspark import pipelines as dp
 from pyspark.sql import functions as F
 

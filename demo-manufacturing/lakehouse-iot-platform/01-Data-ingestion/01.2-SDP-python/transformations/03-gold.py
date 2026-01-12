@@ -1,3 +1,6 @@
+import sys
+sys.path.insert(0, "../vars")
+from vars import *
 from pyspark import pipelines as dp
 from pyspark.sql import functions as F
 from pyspark.sql.window import Window
@@ -37,6 +40,7 @@ import mlflow
 # Load ML model from Unity Catalog registry and register as UDF
 mlflow.set_registry_uri('databricks-uc')
 predict_maintenance_udf = mlflow.pyfunc.spark_udf(spark, "models:/main_build.dbdemos_iot_platform.dbdemos_turbine_maintenance@prod", "string", env_manager='virtualenv')
+
 spark.udf.register("predict_maintenance", predict_maintenance_udf)
 
 

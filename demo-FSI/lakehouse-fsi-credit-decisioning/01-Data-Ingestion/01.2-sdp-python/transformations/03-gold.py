@@ -151,7 +151,7 @@ def customer_gold_secured():
     c = spark.read.table("customer_gold").alias("c")
 
     # Get encryption key from secret scope
-    secret_key = dbutils.secrets.get("<YOUR_SCOPE>", "<YOUR_SECRET_NAME>")
+    secret_key = dbutils.secrets.get("SecretScope", "key")
 
     # Mask logic: conditionally encrypt first_name for data-science-users
     masked_first_name = F.when(

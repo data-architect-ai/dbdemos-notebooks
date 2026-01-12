@@ -25,6 +25,10 @@
 
 # COMMAND ----------
 
+dbutils.widgets.dropdown("reset_all_data", "false", ["true", "false"], "Reset all data")
+
+# COMMAND ----------
+
 DBDemos.setup_schema(catalog, db, reset_all_data, volume_name)
 volume_folder =  f"/Volumes/{catalog}/{db}/{volume_name}"
 

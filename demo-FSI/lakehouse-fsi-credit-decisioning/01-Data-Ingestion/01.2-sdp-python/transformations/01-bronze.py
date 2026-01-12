@@ -1,4 +1,5 @@
 from pyspark import pipelines as dp
+
 # -- ----------------------------------
 # -- Ingest credit bureau data (JSON format)
 # -- Credit bureau data contains information about customer credit history and creditworthiness

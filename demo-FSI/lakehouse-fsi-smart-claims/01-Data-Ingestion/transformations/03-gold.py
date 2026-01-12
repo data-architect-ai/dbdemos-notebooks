@@ -1,5 +1,9 @@
+import sys
+sys.path.insert(0, "../variables")
+from variables import *
+
 from pyspark import pipelines as dp
-import geopy
+from geopy.geocoders import Nominatim
 import pandas as pd
 from pyspark.sql.functions import col, pandas_udf
 from typing import Iterator
@@ -39,7 +43,7 @@ def geocode(geolocator, address):
 
 @pandas_udf("latitude float, longitude float")
 def get_lat_long(batch_iter: Iterator[pd.Series]) -> Iterator[pd.DataFrame]:
-  geolocator = geopy.Nominatim(user_agent="claim_lat_long", timeout=5, scheme='https')
+  geolocator = Nominatim(user_agent="claim_lat_long", timeout=5, scheme='https')
   for address in batch_iter:
     yield address.apply(lambda x: geocode(geolocator, x))
 
